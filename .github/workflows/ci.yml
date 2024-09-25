@@ -18,9 +18,6 @@ jobs:
         with:
           go-version: '1.23.0'
 
-      - name: Check directory
-        run: ls -al
-
       - name: Run Tests
         run: go test -cover ./...
 
@@ -29,8 +26,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check directory
-        run: ls -al
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23.0'
 
       - name: Check Formatting
         run : test -z $(go fmt ./...)
