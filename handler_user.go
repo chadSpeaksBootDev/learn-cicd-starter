@@ -72,7 +72,6 @@ func generateRandomSHA256Hash() (string, error) {
 }
 
 func (cfg *apiConfig) handlerUsersGet(w http.ResponseWriter, r *http.Request, user database.User) {
-
 	userResp, err := databaseUserToUser(user)
 	if err != nil {
 		log.Println(err)
